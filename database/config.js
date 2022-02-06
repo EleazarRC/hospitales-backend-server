@@ -5,7 +5,9 @@ const dbConnection = async () => {
   try {
     await mongoose.connect(
       process.env.BD_CNN ,
-      {}
+      {
+ 
+      }
     );
     console.log("Connection successful");
   } catch (error) {
