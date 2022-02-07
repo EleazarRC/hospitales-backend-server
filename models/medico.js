@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const HospitalSchema = Schema({
+const MedicoSchema = Schema({
 
     nombre: {
         type: String,
@@ -10,19 +10,24 @@ const HospitalSchema = Schema({
         type: String
     },
     usuario: {
-        require: true,
         type: Schema.Types.ObjectId,
         ref: 'Usuario',
+        require: true
+    },
+    hospital: {
+        type: Schema.Types.ObjectId,
+        ref: 'Hospital',
+        require: true
     }
 
-}, { collection: 'hospitales'} );
+} );
 
 // Opcional para ver uid en vez de _id....
 // El password lo extraigo de la respuesta para no mostralo
-HospitalSchema.method('toJSON', function() {
+MedicoSchema.method('toJSON', function() {
     const { __v, ...object } = this.toObject();
     return object;
 });
 
 
-module.exports = model( 'Hospital', HospitalSchema );
+module.exports = model( 'Medico', MedicoSchema );

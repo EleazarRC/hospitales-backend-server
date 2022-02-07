@@ -1,5 +1,5 @@
 /*
-    ruta: /api/hospitales
+    ruta: /api/medicos
 */
 
 const { Router } = require("express");
@@ -9,33 +9,35 @@ const { validarCampos } = require('../middlewares/validar-campos');
 const { validarJWT } = require("../middlewares/validar-jwt");
 
 const {
-    getHospital,
-    crearHospital,
-    actualizarHospital,
-    borrarHospital
-} = require('../controllers/hospitales');
+    getMedico,
+    crearMedico,
+    actualizarMedico,
+    borrarMedico
+} = require('../controllers/medicos');
+
 
 const router = Router();
 
 
-router.get( '/', getHospital );
+router.get( '/', getMedico );
 // El segundo argumento son los middleware (npm i express-validator)
 router.post( '/', 
     [
         validarJWT,
-        check('nombre', 'El nombre del hospital es necesario').not().isEmpty(),
+        check('nombre', 'El nombre del médico es necesario').not().isEmpty(),
+        check('hospital', 'El id del hospital es necesario').isMongoId(),
         validarCampos
     ],
-    crearHospital 
+    crearMedico 
 );
 
 router.put( '/:id', 
     [
        
     ],
-    actualizarHospital );
+    actualizarMedico );
 
-router.delete( '/:id', borrarHospital );
+router.delete( '/:id', borrarMedico );
 
 
 
