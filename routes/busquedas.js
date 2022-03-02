@@ -1,5 +1,6 @@
 /*
     /api/todo/:busqueda
+    http://localhost:3005/api/todo/coleccion/usuarios/a
 */
 const { Router } = require("express");
 const { check } = require('express-validator');
