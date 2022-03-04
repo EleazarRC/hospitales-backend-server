@@ -12,14 +12,15 @@ const {
     getMedico,
     crearMedico,
     actualizarMedico,
-    borrarMedico
+    borrarMedico,
+    getMedicoById
 } = require('../controllers/medicos');
 
 
 const router = Router();
 
 
-router.get( '/', getMedico );
+router.get( '/',validarJWT, getMedico );
 // El segundo argumento son los middleware (npm i express-validator)
 router.post( '/', 
     [
@@ -41,8 +42,10 @@ router.put( '/:id',
     ],
     actualizarMedico );
 
-router.delete( '/:id', validarJWT, borrarMedico );
-
+    router.delete( '/:id', validarJWT, borrarMedico );
+    
+    router.get( '/:id', validarJWT, getMedicoById );
+    
 
 
 module.exports = router;
