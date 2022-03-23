@@ -8,7 +8,7 @@ const dbConnection = async () => {
       {
         useUnifiedTopology:true,
         useNewUrlParser: true,
-        useCreateIndex: true
+        /* useCreateIndex: true */
       }
     );
     console.log("Connection successful");
