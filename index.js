@@ -1,5 +1,5 @@
 // Leer el archivo .env
-require('dotenv').config();
+require('dotenv').config({ path: 'env' });
 
 // Iniciar con nodemon index.js
 
