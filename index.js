@@ -5,6 +5,7 @@ require('dotenv').config({ path: 'env' });
 console.log('Hola Mundo');
     
 console.log(process.env.DATABASE_URL);
+console.log(process.env.$DATABASE_URL);
 
 
 // Iniciar con nodemon index.js
