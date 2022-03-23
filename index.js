@@ -1,6 +1,8 @@
 // Leer el archivo .env
 require('dotenv').config({ path: 'env' });
 
+dotenv.config();
+
 // Iniciar con nodemon index.js
 
 const express = require('express');
